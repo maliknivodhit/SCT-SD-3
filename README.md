@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
+🧩 Automatic Sudoku Solver (TypeScript)
+This project implements an automatic Sudoku solver capable of solving any valid Sudoku puzzle using a backtracking algorithm. It's built with TypeScript for type safety and provides a clear solution for given Sudoku grids.
 
-## Project info
+🚀 Features
+Solves Standard Sudoku Puzzles: Handles 9x9 Sudoku grids.
 
-**URL**: https://lovable.dev/projects/2077cc78-7e7c-4c7f-b604-33984cc8a9a1
+Backtracking Algorithm: Utilizes a robust backtracking approach to explore possible solutions.
 
-## How can I edit this code?
+Type-Safe: Developed in TypeScript for improved code quality and maintainability.
 
-There are several ways of editing your application.
+Input Flexibility: Accepts Sudoku puzzles as a 2D array (number[][]).
 
-**Use Lovable**
+Clear Output: Prints the solved Sudoku grid or indicates if no solution exists.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2077cc78-7e7c-4c7f-b604-33984cc8a9a1) and start prompting.
+💡 How It Works (Backtracking Algorithm)
+The solver employs a recursive backtracking algorithm, a fundamental technique for solving constraint satisfaction problems like Sudoku.
 
-Changes made via Lovable will be committed automatically to this repo.
+Find Empty Cell: The algorithm begins by locating the next empty cell (typically represented by 0) in the grid.
 
-**Use your preferred IDE**
+Try Numbers: If an empty cell is found, it attempts to place numbers from 1 to 9 into that cell.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Check Validity: For each number tried, it performs checks to ensure the placement is valid according to Sudoku rules (no duplicate numbers in the current row, column, or 3x3 subgrid).
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Recurse:
 
-Follow these steps:
+If the number is valid, the algorithm recursively calls itself to solve the remainder of the puzzle.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+If the recursive call returns true (indicating a solution was found), then the current number choice was correct, and the overall solution is complete.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Backtrack:
 
-# Step 3: Install the necessary dependencies.
-npm i
+If the number is not valid, or if the recursive call returns false (meaning no solution was found with that choice), the algorithm "backtracks." It resets the current cell to 0 and proceeds to try the next number for that cell.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+No Solution: If all numbers from 1 to 9 have been attempted for a specific cell and none lead to a solution, the current path is a dead end. The function returns false, prompting backtracking in the preceding recursive call.
 
-**Edit a file directly in GitHub**
+Solved: If no empty cells remain in the grid, it signifies that the entire grid has been successfully filled, and a valid solution has been discovered. The function returns true.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🛠️ How to Use
+To use the Sudoku solver, you'll need Node.js and npm (or yarn) installed on your system.
 
-**Use GitHub Codespaces**
+Clone the Repository (if applicable):
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+git clone <repository_url>
+cd sudoku-solver
 
-## What technologies are used for this project?
+(Replace <repository_url> with the actual URL if this were a GitHub project)
 
-This project is built with:
+Install Dependencies:
+Navigate to the project directory and install the necessary Node.js packages (primarily TypeScript).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+npm install
+# or
+yarn install
 
-## How can I deploy this project?
+Prepare Your Sudoku Puzzle:
+Represent your Sudoku puzzle as a number[][] (a 2D array of numbers) where 0 represents an empty cell. You would typically define this in your index.ts or main.ts file.
 
-Simply open [Lovable](https://lovable.dev/projects/2077cc78-7e7c-4c7f-b604-33984cc8a9a1) and click on Share -> Publish.
+Example Puzzle (src/index.ts or similar):
 
-## Can I connect a custom domain to my Lovable project?
+const grid: number[][] = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+];
 
-Yes, you can!
+// Assuming your solver function is 'solveSudoku' and print function is 'printGrid'
+// import { solveSudoku, printGrid } from './solver'; // Adjust path as needed
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+console.log("Original Sudoku:");
+// printGrid(grid); // You'd implement this function
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+if (solveSudoku(grid)) {
+    console.log("\nSolved Sudoku:");
+    // printGrid(grid);
+} else {
+    console.log("\nNo solution exists for this Sudoku puzzle.");
+}
+
+(Note: You'll need to define your solveSudoku and printGrid functions within your TypeScript files.)
+
+Compile and Run:
+First, compile your TypeScript code to JavaScript:
+
+npm run build
+# or
+tsc # if you have tsc globally installed
+
+Then, run the compiled JavaScript file using Node.js:
+
+npm start
+# or
+node dist/index.js # or wherever your main compiled file is
+
+⚙️ Technologies Used
+TypeScript
+
+Node.js
+
+npm (Node Package Manager)
+
+🤝 Contributing
+(Optional section for open-source projects)
+Feel free to fork this repository and contribute!
+
+📄 License
