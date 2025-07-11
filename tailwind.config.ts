@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'playfair': ['Playfair Display', 'serif'],
+				'source-serif': ['Source Serif Pro', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -73,6 +77,11 @@ export default {
 					text: 'hsl(var(--sudoku-text))',
 					'text-given': 'hsl(var(--sudoku-text-given))',
 					'text-solved': 'hsl(var(--sudoku-text-solved))'
+				},
+				newspaper: {
+					bg: 'hsl(var(--newspaper-bg))',
+					text: 'hsl(var(--newspaper-text))',
+					accent: 'hsl(var(--newspaper-accent))'
 				}
 			},
 			borderRadius: {

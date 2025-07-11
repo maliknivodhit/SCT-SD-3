@@ -93,8 +93,8 @@ export const SudokuSolver: React.FC = () => {
                 isValid: true,
               };
 
-              // Add delay for visualization
-              await new Promise(resolve => setTimeout(resolve, 50));
+              // Add minimal delay for visualization
+              await new Promise(resolve => setTimeout(resolve, 5));
               setGrid([...grid]);
 
               if (await solveSudoku(grid)) {
@@ -107,7 +107,7 @@ export const SudokuSolver: React.FC = () => {
                 isValid: true,
               };
               setGrid([...grid]);
-              await new Promise(resolve => setTimeout(resolve, 20));
+              await new Promise(resolve => setTimeout(resolve, 2));
             }
           }
           return false;
@@ -229,12 +229,17 @@ export const SudokuSolver: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 space-y-8">
-      <Card className="w-full max-w-2xl">
-        <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold text-primary">Sudoku Solver</CardTitle>
-          <CardDescription className="text-lg">
-            Enter your Sudoku puzzle and watch it solve automatically using backtracking algorithm
+    <div className="min-h-screen bg-newspaper-bg flex flex-col items-center justify-center p-4 space-y-8" style={{
+      backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--newspaper-accent)) 1px, transparent 0)`,
+      backgroundSize: '20px 20px'
+    }}>
+      <Card className="w-full max-w-2xl bg-newspaper-bg border-sudoku-border-thick shadow-2xl">
+        <CardHeader className="text-center border-b-2 border-sudoku-border-thick">
+          <CardTitle className="text-4xl font-bold text-newspaper-text font-serif tracking-wider">
+            ⚡ THE SUDOKU GAZETTE ⚡
+          </CardTitle>
+          <CardDescription className="text-lg text-newspaper-text font-serif italic">
+            "Automatic Puzzle Solutions Since 1899" • Fast Backtracking Algorithm
           </CardDescription>
           <div className="flex justify-center gap-2 mt-4">
             <Badge variant="secondary">Backtracking Algorithm</Badge>

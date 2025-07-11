@@ -36,17 +36,22 @@ All colors MUST be HSL.
     --input: 220 13% 91%;
     --ring: 262 83% 58%;
 
-    /* Sudoku-specific colors */
-    --sudoku-grid: 220 13% 91%;
-    --sudoku-cell: 0 0% 100%;
-    --sudoku-cell-given: 220 14% 96%;
-    --sudoku-cell-solved: 120 60% 95%;
-    --sudoku-cell-error: 0 84% 95%;
-    --sudoku-border-thick: 220 15% 25%;
-    --sudoku-border-thin: 220 13% 85%;
-    --sudoku-text: 220 15% 15%;
-    --sudoku-text-given: 220 15% 35%;
-    --sudoku-text-solved: 120 60% 25%;
+    /* Sudoku-specific colors - Old Newspaper Theme */
+    --sudoku-grid: 39 39% 85%;
+    --sudoku-cell: 39 39% 95%;
+    --sudoku-cell-given: 39 39% 88%;
+    --sudoku-cell-solved: 39 39% 92%;
+    --sudoku-cell-error: 0 39% 88%;
+    --sudoku-border-thick: 39 39% 25%;
+    --sudoku-border-thin: 39 39% 70%;
+    --sudoku-text: 39 39% 15%;
+    --sudoku-text-given: 39 39% 25%;
+    --sudoku-text-solved: 39 39% 20%;
+    
+    /* Newspaper background */
+    --newspaper-bg: 39 39% 98%;
+    --newspaper-text: 39 39% 10%;
+    --newspaper-accent: 39 39% 80%;
 
     --radius: 0.5rem;
 
