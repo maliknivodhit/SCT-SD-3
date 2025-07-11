@@ -61,6 +61,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				sudoku: {
+					grid: 'hsl(var(--sudoku-grid))',
+					cell: 'hsl(var(--sudoku-cell))',
+					'cell-given': 'hsl(var(--sudoku-cell-given))',
+					'cell-solved': 'hsl(var(--sudoku-cell-solved))',
+					'cell-error': 'hsl(var(--sudoku-cell-error))',
+					'border-thick': 'hsl(var(--sudoku-border-thick))',
+					'border-thin': 'hsl(var(--sudoku-border-thin))',
+					text: 'hsl(var(--sudoku-text))',
+					'text-given': 'hsl(var(--sudoku-text-given))',
+					'text-solved': 'hsl(var(--sudoku-text-solved))'
 				}
 			},
 			borderRadius: {
